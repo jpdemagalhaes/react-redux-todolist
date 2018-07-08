@@ -15,12 +15,19 @@ class TodoList extends Component {
     this.setState({ newTodoText: '' })
   }
 
+  removeTodo = (todo) => {
+    this.props.removeTodo(todo);
+  }
+
   render(){
     return (
       <div>
         <ul>
           { this.props.todos.map(todo => (
-            <li key={todo.id}>{todo.text}</li>
+            <li key={todo.id}>
+              {todo.text}
+              <button onClick={this.removeTodo.bind(this,todo)}>Remove</button>
+            </li>
           )) }
         </ul>
 
