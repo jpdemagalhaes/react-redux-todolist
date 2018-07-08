@@ -10,6 +10,11 @@ class TodoList extends Component {
   }
 
   addNewTodo = () => {
+    if(this.state.newTodoText === ''){
+      alert('Todo cannot be empty')
+      return;
+    }
+
     this.props.addTodo(this.state.newTodoText)
 
     this.setState({ newTodoText: '' })
