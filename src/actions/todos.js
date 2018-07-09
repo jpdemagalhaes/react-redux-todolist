@@ -11,3 +11,10 @@ export function removeTodo(todo) {
     todo,
   }
 }
+
+export function loadTodos(todos) {
+  return {
+    type: 'LOAD_TODOS',
+    todos
+  }
+}

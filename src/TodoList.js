@@ -9,6 +9,13 @@ class TodoList extends Component {
     newTodoText: ''
   }
 
+  componentDidMount() {
+    let todos = JSON.parse(localStorage.getItem('todos'))
+    if(todos == null) todos = []
+
+    this.props.loadTodos(todos)
+  }
+
   addNewTodo = () => {
     if(this.state.newTodoText === ''){
       alert('Todo cannot be empty')
